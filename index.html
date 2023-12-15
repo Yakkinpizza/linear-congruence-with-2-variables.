@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finding the value of a system of linear congruence with 2 variables.</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+        }
+
+        #container {
+            text-align: center;
+            border: 2px solid #333;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 1200px;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            text-align: left;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input, textarea, button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        textarea {
+            height: 100px;
+            resize: vertical;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        h2, p {
+            margin: 10px 0;
+            color: #333;
+        }
+
+        p {
+            font-weight: bold;
+        }
+
+        .error {
+            color: red;
+            margin-top: 10px;
+        }
+
+        .result {
+            text-align: left;
+            white-space: pre-line;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Finding the value of a system of linear congruence with 2 variables.</h1>
+        <form method="post">
+            <label for="coefficients">Enter coefficients a, b, c, d separated by spaces:</label>
+            <input type="text" name="coefficients" placeholder="e.g., 1 2 3 4" required>
+            <label for="mod_value">Enter mod value as p:</label>
+            <input type="text" name="mod_value" placeholder="e.g., 5" required>
+            <label for="power_value">Enter number of p raise to the power of n as n:</label>
+            <input type="text" name="power_value" placeholder="e.g., 3" required>
+            <button type="submit">Submit</button>
+        </form>
+
+        {% if error %}
+        <p class="error">Error: {{ error }}</p>
+        {% else %}
+        <div class="result">
+            <h2>Results:</h2>
+            {% for result in results %}
+            <p>{{ result }}</p>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
